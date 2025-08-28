@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00FF9C, #D67BFF);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00e68c, #c266ff);
+}
+
+/* Custom range slider styles */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00FF9C, #D67BFF);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00FF9C, #D67BFF);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Button ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active:before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Glowing effects */
+.glow {
+  box-shadow: 0 0 20px rgba(214, 123, 255, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.3);
+}
+
+/* Success checkmark animation */
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 7px;
+    opacity: 1;
+  }
+  40% {
+    height: 14px;
+    width: 7px;
+    opacity: 1;
+  }
+  100% {
+    height: 14px;
+    width: 7px;
+    opacity: 1;
+  }
+}
+
+.checkmark {
+  width: 7px;
+  height: 14px;
+  border: solid #00FF9C;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  animation: checkmark 0.6s ease-in-out;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(45deg, #00FF9C, #D67BFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #00FF9C;
+  animation: confetti-fall 3s linear infinite;
+}
+
+.confetti:nth-child(2n) {
+  background: #D67BFF;
+  animation-delay: -0.5s;
+}
+
+.confetti:nth-child(3n) {
+  background: #FFD700;
+  animation-delay: -1s;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .animate-fadeIn {
+    animation-duration: 0.3s;
+  }
+  
+  .card-hover:hover {
+    transform: none;
+  }
+}
